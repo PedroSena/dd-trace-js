@@ -399,6 +399,7 @@ interface Plugins {
   "elasticsearch": plugins.elasticsearch;
   "express": plugins.express;
   "fastify": plugins.fastify;
+  "fs": plugins.fs;
   "generic-pool": plugins.generic_pool;
   "graphql": plugins.graphql;
   "grpc": plugins.grpc;
@@ -649,6 +650,12 @@ declare namespace plugins {
    * [fastify](https://www.fastify.io/) module.
    */
   interface fastify extends HttpServer {}
+
+  /**
+   * This plugin automatically instruments the
+   * [fs](https://nodejs.org/api/fs.html) module.
+   */
+  interface fs extends Instrumentation {}
 
   /**
    * This plugin patches the [generic-pool](https://github.com/coopernurse/node-pool)
