@@ -1,6 +1,7 @@
 'use strict'
 
 const platform = require('../../platform')
+const msgpack = require('../../platform/node/msgpack')
 const log = require('../../log')
 const encode = require('../../encode')
 const tracerVersion = require('../../../lib/version')
@@ -37,7 +38,7 @@ class Writer {
 
   flush () {
     if (this._queue.length > 0) {
-      const data = platform.msgpack.prefix(this._queue)
+      const data = msgpack.prefix(this._queue)
 
       this._request(data, this._queue.length)
 
