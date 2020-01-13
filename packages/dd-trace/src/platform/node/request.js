@@ -2,9 +2,9 @@
 
 const http = require('http')
 const https = require('https')
-const containerInfo = require('container-info').sync() || {}
+//const containerInfo = require('container-info').sync() || {}
 
-const containerId = containerInfo.containerId
+//const containerId = containerInfo.containerId
 
 function request (options, callback) {
   options = Object.assign({
@@ -17,9 +17,9 @@ function request (options, callback) {
 
   options.headers['Content-Length'] = byteLength(data)
 
-  if (containerId) {
-    options.headers['Datadog-Container-ID'] = containerId
-  }
+  // if (containerId) {
+  //   options.headers['Datadog-Container-ID'] = containerId
+  // }
 
   const client = options.protocol === 'https:' ? https : http
   const req = client.request(options, res => {
