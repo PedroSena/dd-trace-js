@@ -42,7 +42,7 @@ class BrowserExporter {
 
     this._flushing = true
 
-    const url = `${this._url.href}/v0.4/traces`
+    const url = `${this._url.href}/v0.3/traces`
     const method = 'PUT'
     // const url = `${this._url.href}/v1/input/${this._clientToken}`
     // const method = 'POST'
