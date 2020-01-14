@@ -48,7 +48,7 @@ class BrowserExporter {
     // const method = 'POST'
     const body = this._queue.join(DELIMITER)
     const keepalive = true
-    const mode = 'no-cors'
+    const mode = 'cors'
     const done = () => {
       this._flushing = false
     }
