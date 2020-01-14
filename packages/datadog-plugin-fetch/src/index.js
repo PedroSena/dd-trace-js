@@ -102,7 +102,8 @@ function inject (init, tracer, span, origin) {
 function isFlush (href, url) {
   return (new RegExp(`^${href}/v1/input/[a-z0-9]+$`, 'i')).test(url.href) ||
     url.href.startsWith('https://rum-http-intake.logs.datadoghq.com') ||
-    url.href.startsWith('https://browser-http-intake.logs.datadoghq.com')
+    url.href.startsWith('https://browser-http-intake.logs.datadoghq.com') ||
+    url.href.startsWith('http://localhost')
 }
 
 module.exports = {
