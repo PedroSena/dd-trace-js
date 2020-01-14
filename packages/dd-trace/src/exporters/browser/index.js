@@ -42,10 +42,8 @@ class BrowserExporter {
 
     this._flushing = true
 
-    const url = `${this._url.href}/v0.3/traces`
-    const method = 'PUT'
-    // const url = `${this._url.href}/v1/input/${this._clientToken}`
-    // const method = 'POST'
+    const url = `${this._url.href}/v1/input/${this._clientToken}`
+    const method = 'POST'
     const body = this._queue.join(DELIMITER)
     const keepalive = true
     const mode = 'no-cors'

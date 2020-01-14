@@ -1,8 +1,6 @@
 'use strict'
 
 const platform = require('../../platform')
-const msgpack = require('../../platform/node/msgpack')
-const request = require('../../platform/node/request')
 const log = require('../../log')
 const encode = require('../../encode')
 const tracerVersion = require('../../../lib/version')
@@ -39,7 +37,7 @@ class Writer {
 
   flush () {
     if (this._queue.length > 0) {
-      const data = msgpack.prefix(this._queue)
+      const data = platform.msgpack.prefix(this._queue)
 
       this._request(data, this._queue.length)
 
@@ -75,7 +73,7 @@ class Writer {
 
     platform.metrics().increment(`${METRIC_PREFIX}.requests`, true)
 
-    request(Object.assign({ data }, options), (err, res, status) => {
+    platform.request(Object.assign({ data }, options), (err, res, status) => {
       if (status) {
         platform.metrics().increment(`${METRIC_PREFIX}.responses`, true)
         platform.metrics().increment(`${METRIC_PREFIX}.responses.by.status`, `status:${status}`, true)
