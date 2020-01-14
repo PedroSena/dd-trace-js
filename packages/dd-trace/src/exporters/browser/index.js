@@ -47,7 +47,7 @@ class BrowserExporter {
     // const url = `${this._url.href}/v1/input/${this._clientToken}`
     // const method = 'POST'
     const body = this._queue.join(DELIMITER)
-    const keepalive = true
+    const keepalive = false
     const mode = 'cors'
     const done = () => {
       this._flushing = false
